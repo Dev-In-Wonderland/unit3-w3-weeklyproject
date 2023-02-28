@@ -9,20 +9,20 @@ const Home = () => {
     "Deep Purple",
     "The Doors",
     "The Rolling Stones",
-    "The Pink Floys",
+    "The Pink Floyds",
     "The white Stripes",
   ];
 
   let popArtists = [
     "Prince",
     "Michael Jackson",
-    "Justin Bieber",
+    "The Weeknd",
     "Jason Derulo",
-    "Adriano Celentano",
+    "Charlie Puth",
     "Spandau Ballet",
   ];
 
-  let hipHopArtists = ["Will. i. am", "dmx", "neffex", "busta rhymes", "Kendrick Lamar"];
+  let hipHopArtists = ["Black Eyed Peas", "dmx", "neffex", "busta rhymes", "Kendrick Lamar"];
 
   let headers = new Headers({
     
