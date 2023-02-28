@@ -8,7 +8,7 @@ body {
   );
 }
 
-/*SIDEBAR SECTION*/
+
 .navbar.fixed-left {
   position: fixed;
   top: 0;
@@ -86,7 +86,7 @@ ul {
   }
 }
 
-/* BOTTOM PLAYER SECTION*/
+
 
 .bg-container {
   height: 5.5rem;
@@ -121,7 +121,7 @@ ul {
   color: white;
 }
 
-/*MAIN PAGE SECTION*/
+
 
 .mainLinks {
   margin-top: 1.5rem;
