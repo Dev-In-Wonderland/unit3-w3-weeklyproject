@@ -2,7 +2,7 @@ import { Col, Container, Nav, Row } from "react-bootstrap";
 import { FaHome } from "react-icons/fa";
 import { BsFillBookFill } from "react-icons/bs";
 
-const MyNav = () => {
+const Navbar = () => {
   return (
     <>
       <Container>
@@ -91,4 +91,4 @@ const MyNav = () => {
   );
 };
 
-export default MyNav;
+export default Navbar;

@@ -22,10 +22,10 @@ const Album = () => {
                   track.title
                 }</a>
                 <small class="duration" style="color:white">${Math.floor(
-                  parseInt(track.duration) / 60 // setting the duration minutes
+                  parseInt(track.duration) / 60 
                 )}:${
       parseInt(track.duration) % 60 < 10
-        ? "0" + (parseInt(track.duration) % 60) // checking che duration seconds, if they are less than 10 a 0 is prefixed
+        ? "0" + (parseInt(track.duration) % 60) 
         : parseInt(track.duration) % 60
     }</small>
             </div>`;
@@ -48,24 +48,24 @@ const Album = () => {
         }
       );
 
-      let imgContainer = document.querySelector("#img-container"); // gets a reference to the image container
-      let trackList = document.querySelector("#trackList"); // gets a reference to the tracklist div
+      let imgContainer = document.querySelector("#img-container"); 
+      let trackList = document.querySelector("#trackList"); 
 
       if (response.ok) {
-        let album = await response.json(); // transforms the response into a JSON
-        imgContainer.innerHTML = albumArt(album); // creates the albumArt for the img-container
+        let album = await response.json(); 
+        imgContainer.innerHTML = albumArt(album); 
         for (let i = 0; i < album.tracks.data.length; i++) {
           let div = document.createElement("div");
-          div.innerHTML += song(album.tracks.data[i]); // use "song" method to create the item
-          trackList.appendChild(div); // add the item to the tracklist
+          div.innerHTML += song(album.tracks.data[i]); 
+          trackList.appendChild(div); 
         }
       } else {
-        // something went wrong with the request --> i.e. headers missing, wrong HTTP Method
+        
         document.querySelector("#img-container").innerHTML =
           "NOT OK" + (await response.text());
       }
     } catch (exception) {
-      // ex.: Url is not correct, Internal Server Error
+      
       document.querySelector("#img-container").innerHTML = exception;
     }
   };

@@ -22,10 +22,10 @@ const Home = () => {
     "Spandau Ballet",
   ];
 
-  let hipHopArtists = ["eminem", "snoopdogg", "lilwayne", "drake", "kanyewest"];
+  let hipHopArtists = ["Will. i. am", "dmx", "neffex", "busta rhymes", "Kendrick Lamar"];
 
   let headers = new Headers({
-    // sets the headers
+    
     "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
     "X-RapidAPI-Key": "9d408f0366mshab3b0fd8e5ecdf7p1b09f2jsne682a1797fa0",
   });
@@ -33,10 +33,10 @@ const Home = () => {
   const search = async () => {
     let div = document.querySelector("#searchResults .row");
     div.innerHTML = "";
-    let searchQuery = document.querySelector("#searchField").value; // gets the value from the search box
+    let searchQuery = document.querySelector("#searchField").value; 
 
     if (searchQuery.length > 2) {
-      //if there's a value in the search box => fetch the information from rapidapi & display the result
+      
       document.querySelector("#searchResults").style.display = "block";
 
       try {
@@ -47,11 +47,11 @@ const Home = () => {
             method: "GET",
             headers,
           }
-        ); // gets the information
+        ); 
 
         if (response.ok) {
-          let result = await response.json(); // transforms the response to json
-          let songs = result.data; // gets the songs info
+          let result = await response.json(); 
+          let songs = result.data; 
 
           for (let x = 0; x < result.data.length; x++) {
             div.innerHTML += albumCard(result.data[x]);
@@ -63,14 +63,13 @@ const Home = () => {
         console.log(err);
       }
     } else {
-      //else just hide the section!
+      
       document.querySelector("#searchResults").style.display = "none";
     }
   };
 
   function albumCard(songInfo) {
-    // songInfo represents the info for the current song
-    // creating the wrapper div
+    
     return `
           <div class="col text-center" id=${songInfo.id}>
             <a href="/album/id=${songInfo.album.id}">
@@ -94,8 +93,7 @@ const Home = () => {
   }
 
   const handleArtist = async (artistName, domQuerySelector) => {
-    // artistName = "eminem", "metallica", etc...
-    // domQuerySelector = "#rockSection" etc...
+    
     try {
       let response = await fetch(
         "https://striveschool-api.herokuapp.com/api/deezer/search?q=" +
@@ -104,12 +102,12 @@ const Home = () => {
           method: "GET",
           headers,
         }
-      ); // gets the information
+      ); 
       if (response.ok) {
-        let result = await response.json(); // transforms the response to json
+        let result = await response.json(); 
         let songInfo = result.data;
         let div = document.querySelector(domQuerySelector);
-        div.innerHTML += albumCard(songInfo[0]); // create a new album tyle
+        div.innerHTML += albumCard(songInfo[0]); 
       } else {
         console.log("error");
       }
@@ -123,14 +121,14 @@ const Home = () => {
     let popRandomArtists = [];
     let hipHopRandomArtists = [];
 
-    document.querySelector("#searchField").value = ""; // empties search field on page load
+    document.querySelector("#searchField").value = ""; 
 
     while (rockRandomArtists.length < 4) {
-      // pushes elements inside the array until it has 4 strings
-      let artist = rockArtists[Math.floor(Math.random() * rockArtists.length)]; // select an element from the array with an index between 0 and 7
+      
+      let artist = rockArtists[Math.floor(Math.random() * rockArtists.length)]; 
       if (!rockRandomArtists.includes(artist)) {
-        // checks if the artist is not already present in the array
-        rockRandomArtists.push(artist); // pushes the artist in the array
+        
+        rockRandomArtists.push(artist); 
       }
     }
 
@@ -203,7 +201,7 @@ const Home = () => {
         <Row className="row m-0">
           <Col className="col-10  p-0">
             <div id="hiphop">
-              <h2>Electronic music</h2>
+              <h2>#Hiphop</h2>
               <Row
                 className="row m-0 row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3"
                 id="hipHopSection"
